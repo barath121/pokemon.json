@@ -58,7 +58,7 @@ Object.keys(TempPokemon).forEach(function (key) {
 };
 const pokemonrandomizer = (req, res) => {
   var pokemon = [];
-  for (let i = 0; i < 6; i += 1) {
+  for (let i = 0; i < 27; i += 1) {
     var temppokemon = Pokemondata[Math.floor(Math.random() * 809)];
     var id = findid(temppokemon.id);
     temppokemon = {
