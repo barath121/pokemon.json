@@ -56,17 +56,25 @@ Object.keys(TempPokemon).forEach(function (key) {
     }
   });
 };
+
 const pokemonrandomizer = (req, res) => {
   var pokemon = [];
-  for (let i = 0; i < 27; i += 1) {
+  for (let i = 0; i < 27;) {
     var temppokemon = Pokemondata[Math.floor(Math.random() * 809)];
     var id = findid(temppokemon.id);
     temppokemon = {
       ...temppokemon,
       image: "https://www.serebii.net/pokemongo/pokemon/" + id + ".png"
     };
+    console.log(temppokemon.id)
+    if(!(pokemon.some(el => el.id === temppokemon.id)))
+    {
     pokemon.push(temppokemon);
+    i++;
   }
+
+    }
+    
   return pokemon;
 };
 const home = (req, res) => {
